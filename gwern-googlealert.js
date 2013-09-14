@@ -8,7 +8,6 @@ var svg = d3.select("body")
             .attr("height",height);
 
 d3.json("googlealert.json", function(data) {
-  var xScale = d3.scale.linear();
   var dates = []
   for (var i = 0; i < data.length; i++)
   {
