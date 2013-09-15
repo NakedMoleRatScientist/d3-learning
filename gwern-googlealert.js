@@ -1,5 +1,6 @@
 var width = 900;
 var height = 500;
+var padding = 5;
 
 var svg = d3.select("body")
             .append("svg")
@@ -16,8 +17,9 @@ d3.json("googlealert.json", function(data) {
   var timeScale = d3.time.scale();
   timeScale.domain([0,data.length]);
   timeScale.range(dates[0],dates[data.length - 1]);
-  yScale = d3.scale.linear()
-//  yScale.domain([0, d3.max(data, function(d) {return d[]})])
+  yScale = d3.scale.linear();
+  yScale.domain([0,d3.max(data, function(d) {return d.links})]);
+  yScale.range([height - padding, padding]);
 });
 
 
