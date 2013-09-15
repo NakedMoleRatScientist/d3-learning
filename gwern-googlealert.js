@@ -55,6 +55,12 @@ d3.json("googlealert.json", function(data) {
   .attr("transform", "translate(" + padding + ",0)")
   .call(yAxis);
 
+  svg.append("text")
+  .attr("class", "x label")
+  .attr("x", width / 2)
+  .attr("y", height - (padding / 2.5))
+  .text("Date");
+
 });
 
 
