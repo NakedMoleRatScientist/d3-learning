@@ -16,7 +16,7 @@ d3.json("googlealert.json", function(data) {
   }
   var timeScale = d3.time.scale();
   timeScale.domain([dates[0],dates[data.length - 1]]);
-  timeScale.range([0,data.length]);
+  timeScale.range([padding, width - padding * 2]);
   yScale = d3.scale.linear();
   yScale.domain([0,d3.max(data, function(d) {return parseInt(d.links);})]);
   yScale.range([height - padding, padding]);
