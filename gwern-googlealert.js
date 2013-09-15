@@ -43,6 +43,8 @@ d3.json("googlealert.json", function(data) {
   .orient("left")
   .ticks(7);
 
+  padding -= 1;
+  
   svg.append("g")
   .attr("class","axis")
   .attr("transform", "translate(0," + (height - padding) + ")")
