@@ -38,10 +38,20 @@ d3.json("googlealert.json", function(data) {
   .orient('bottom')
   .ticks(7);
 
+  var yAxis = d3.svg.axis()
+  .scale(yScale)
+  .orient("left")
+  .ticks(7);
+
   svg.append("g")
   .attr("class","axis")
-  .attr("transform", "translate(0," + (height - (padding - 5)) + ")")
+  .attr("transform", "translate(0," + (height - padding) + ")")
   .call(xAxis);
+
+  svg.append("g")
+  .attr("class","axis")
+  .attr("transform", "translate(" + padding + ",0)")
+  .call(yAxis);
 
 });
 
