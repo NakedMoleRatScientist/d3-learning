@@ -1,6 +1,6 @@
 var width = 900;
 var height = 500;
-var padding = 5;
+var padding = 40;
 
 var svg = d3.select("body")
             .append("svg")
@@ -32,6 +32,16 @@ d3.json("googlealert.json", function(data) {
     return yScale(parseInt(d.links));
   })
   .attr("r", 2);
+
+  var xAxis = d3.svg.axis()
+  .scale(timeScale)
+  .orient('bottom')
+  .ticks(7);
+
+  svg.append("g")
+  .attr("class","axis")
+  .attr("transform", "translate(0," + (height - (padding - 5)) + ")")
+  .call(xAxis);
 
 });
 
