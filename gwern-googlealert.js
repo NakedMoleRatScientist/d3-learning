@@ -4,6 +4,8 @@ var padding = 40;
 
 var svg = d3.select("body")
             .append("svg")
+            .attr("font-family","sans-serif")
+            .attr("font-size","0.80em")
             .attr("width",width)
             .attr("height",height);
 
@@ -61,10 +63,10 @@ d3.json("googlealert.json", function(data) {
   .attr("y", height - (padding / 2.5))
   .text("Date");
 
-  var text = svg.append("text")
+  svg.append("text")
   .attr("class", "y label")
   .attr("font-family","sans-serif")
-  .attr("font-size", "0.80em")
+  .attr("font-size", "0.85em")
   .attr("x", height / 2)
   .attr("y", -padding / 2)
   .attr("transform","rotate(90)")
