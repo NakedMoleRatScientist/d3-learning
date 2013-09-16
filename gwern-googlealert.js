@@ -63,9 +63,11 @@ d3.json("googlealert.json", function(data) {
 
   var text = svg.append("text")
   .attr("class", "y label")
-  .attr("y", height / 2)
-  .attr("x", padding / 2.5)
-  .attr("writing-mode", "tb")
+  .attr("font-family","sans-serif")
+  .attr("font-size", "0.80em")
+  .attr("x", height / 2)
+  .attr("y", -padding / 2)
+  .attr("transform","rotate(90)")
   .text("Links");
 });
 
