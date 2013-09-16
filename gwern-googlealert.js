@@ -61,6 +61,12 @@ d3.json("googlealert.json", function(data) {
   .attr("y", height - (padding / 2.5))
   .text("Date");
 
+  var text = svg.append("text")
+  .attr("class", "y label")
+  .attr("y", height / 2)
+  .attr("x", padding / 2.5)
+  .attr("writing-mode", "tb")
+  .text("Links");
 });
 
 
