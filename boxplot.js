@@ -16,5 +16,9 @@ $(document).ready()
     .attr("width",width)
     .attr("height",height)
 
-
+  var rect = svg.append("rect")
+  .attr("x",0)
+  .attr("y",60)
+  .attr("width",60)
+  .attr("height",60);
 }
