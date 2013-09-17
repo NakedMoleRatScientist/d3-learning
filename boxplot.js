@@ -8,6 +8,9 @@ $(document).ready()
   median = d3.median(dataset)
   q1 = d3.quantile(dataset,0.25)
   q3 = d3.quantile(dataset,0.75)
+  iqr = q3 - q1
+  bottom = q1 - 1.5 * iqr
+  top = q3 + 1.5 * iqr
   var svg = d3.select("body")
     .append("svg")
     .attr("width",width)
