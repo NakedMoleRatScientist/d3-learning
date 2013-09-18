@@ -11,8 +11,8 @@ $(document).ready(function()
   q1 = d3.quantile(dataset,0.25)
   q3 = d3.quantile(dataset,0.75)
   iqr = q3 - q1
-  bottom = q1 - 1.5 * iqr
-  top = q3 + 1.5 * iqr
+  end = q1 - 1.5 * iqr
+  begin = q3 + 1.5 * iqr
   
 
   var yScale = d3.scale.linear()
@@ -36,10 +36,11 @@ $(document).ready(function()
     .attr("width",rect_width)
     .attr("height",iqr_height);
 
-  if (bottom < dataset[0])
+  if (end < dataset[0])
     b_stop = yScale(dataset[0]);
   else
-    b_stop = yScale(bottom);
+    b_stop = yScale(end);
+  
   middle_x = rect_x + (rect_width / 2)
   var bottom_line = svg.append("line")
     .attr("stroke","black")
@@ -49,14 +50,16 @@ $(document).ready(function()
     .attr("x2",middle_x)
     .attr("y2",b_stop);
 
-  if (top > dataset[dataset.length - 1])
+  if (begin > dataset[dataset.length - 1])
     t_stop = yScale(dataset[0]);
   else
-    t_stop = yScale(top);
+    t_stop = yScale(begin);
 
-/*  var top_line = svg.append("line")
+  var top_line = svg.append("line")
     .attr("stroke","black")
     .attr("stroke-width",2)
-    .attr("x1",middle_x);
-*/  
+    .attr("x1",middle_x)
+    .attr("y1",yScale(q3))
+    .attr("x2",middle_x)
+    .attr("y2",t_stop);
 });
