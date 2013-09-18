@@ -13,6 +13,7 @@ $(document).ready(function()
   iqr = q3 - q1
   bottom = q1 - 1.5 * iqr
   top = q3 + 1.5 * iqr
+  
 
   var yScale = d3.scale.linear()
   .domain([dataset[dataset.length - 1],0])
@@ -28,7 +29,7 @@ $(document).ready(function()
   .attr("fill","none")
   .attr("stroke","black")
   .attr("stroke-width",2)
-  .attr("x",0)
+  .attr("x",50)
   .attr("y",yScale(q3))
   .attr("width",60)
   .attr("height",iqr_height);
