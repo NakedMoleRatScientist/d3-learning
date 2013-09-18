@@ -26,16 +26,17 @@ $(document).ready(function()
 
   iqr_height = yScale(q1) - yScale(q3)
   rect_x = 50
+  rect_width = 60
   var rect = svg.append("rect")
     .attr("fill","none")
     .attr("stroke","black")
     .attr("stroke-width",2)
     .attr("x",rect_x)
     .attr("y",yScale(q3))
-    .attr("width",60)
+    .attr("width",rect_width)
     .attr("height",iqr_height);
 
-  middle_x = rect_x + (rect_x / 2)
+  middle_x = rect_x + (rect_width / 2)
   var bottom_line = svg.append("line")
     .attr("stroke","black")
     .attr('stroke-width',2)
