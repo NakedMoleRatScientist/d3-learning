@@ -62,4 +62,11 @@ $(document).ready(function()
     .attr("y1",yScale(q3))
     .attr("x2",middle_x)
     .attr("y2",t_stop);
+
+/*  var median = svg.append("line")
+    .attr("stroke","black")
+    .attr("stroke-width",2)
+    .attr("x1",middle_x)
+
+*/    
 });
