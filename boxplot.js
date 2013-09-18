@@ -37,9 +37,9 @@ $(document).ready(function()
     .attr("height",iqr_height);
 
   if (bottom < dataset[0])
-    stop = yScale(dataset[0]);
+    b_stop = yScale(dataset[0]);
   else
-    stop = yScale(bottom);
+    b_stop = yScale(bottom);
   middle_x = rect_x + (rect_width / 2)
   var bottom_line = svg.append("line")
     .attr("stroke","black")
@@ -47,7 +47,12 @@ $(document).ready(function()
     .attr("x1",middle_x )
     .attr("y1",yScale(q1))
     .attr("x2",middle_x)
-    .attr("y2",stop);
+    .attr("y2",b_stop);
+
+  if (top > dataset[dataset.length - 1])
+    t_stop = yScale(dataset[0]);
+  else
+    t_stop = yScale(top);
 
 /*  var top_line = svg.append("line")
     .attr("stroke","black")
