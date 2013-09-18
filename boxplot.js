@@ -15,14 +15,15 @@ $(document).ready(function()
   top = q3 + 1.5 * iqr
 
   var yScale = d3.scale.linear()
-  .domain([0, dataset[dataset.length]])
+  .domain([dataset[dataset.length - 1],0])
   .range([height - padding, padding])
-  
+
   var svg = d3.select("body")
     .append("svg")
     .attr("width",width)
     .attr("height",height)
 
+  iqr_height = yScale(q3) - yScale(q1)
   var rect = svg.append("rect")
   .attr("fill","none")
   .attr("stroke","black")
@@ -30,5 +31,5 @@ $(document).ready(function()
   .attr("x",0)
   .attr("y",yScale(q3))
   .attr("width",60)
-  .attr("height",yScale(iqr));
+  .attr("height",iqr_height);
 });
