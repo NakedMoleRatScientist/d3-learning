@@ -44,5 +44,10 @@ $(document).ready(function()
     .attr("y1",yScale(q1))
     .attr("x2",middle_x)
     .attr("y2",yScale(dataset[0]));
-  
+
+/*  var top_line = svg.append("line")
+    .attr("stroke","black")
+    .attr("stroke-width",2)
+    .attr("x1",middle_x);
+*/  
 });
