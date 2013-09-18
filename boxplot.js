@@ -13,6 +13,10 @@ $(document).ready(function()
   iqr = q3 - q1
   bottom = q1 - 1.5 * iqr
   top = q3 + 1.5 * iqr
+
+  var yScale = d3.scale.linear()
+  .domain([0, dataset[dataset.length]])
+  .range([height - padding, padding])
   
   var svg = d3.select("body")
     .append("svg")
