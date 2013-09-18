@@ -12,13 +12,18 @@ $(document).ready(function (){
 
 
   var square = svg.append("rect")
-    .attr("x",90)
+    .attr("x",0)
     .attr("y",60)
     .attr("width",60)
     .attr('height',60);
 
   $("#animate").click(function() {
     console.log("beep");
-    square.transition().attr("x",120);
+    square
+      .transition()
+      .duration(1000)
+      .delay(100)
+      .ease("circle")
+      .attr("x",400);
   })
 });  
