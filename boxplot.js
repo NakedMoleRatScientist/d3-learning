@@ -1,4 +1,4 @@
-$(document).ready()
+$(document).ready(function()
 {
   var width = 800;
   var height = 600;
@@ -21,4 +21,4 @@ $(document).ready()
   .attr("y",60)
   .attr("width",60)
   .attr("height",60);
-}
+});
