@@ -16,7 +16,7 @@ $(document).ready(function()
   
 
   var yScale = d3.scale.linear()
-  .domain([dataset[dataset.length - 1],0])
+  .domain([0,dataset[dataset.length - 1]])
   .range([height - padding, padding])
 
   var svg = d3.select("body")
