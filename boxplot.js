@@ -26,11 +26,20 @@ $(document).ready(function()
 
   iqr_height = yScale(q3) - yScale(q1)
   var rect = svg.append("rect")
-  .attr("fill","none")
-  .attr("stroke","black")
-  .attr("stroke-width",2)
-  .attr("x",50)
-  .attr("y",yScale(q3))
-  .attr("width",60)
-  .attr("height",iqr_height);
+    .attr("fill","none")
+    .attr("stroke","black")
+    .attr("stroke-width",2)
+    .attr("x",50)
+    .attr("y",yScale(q3))
+    .attr("width",60)
+    .attr("height",iqr_height);
+
+  var bottom_line = svg.append("line")
+    .attr("stroke","black")
+    .attr('stroke-width',2)
+    .attr("x1",75)
+    .attr("y1",yScale(q1))
+    .attr("x2",75)
+    .attr("y2",yScale(dataset[0]));
+  
 });
