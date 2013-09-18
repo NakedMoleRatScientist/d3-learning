@@ -17,8 +17,11 @@ $(document).ready(function()
     .attr("height",height)
 
   var rect = svg.append("rect")
+  .attr("fill","none")
+  .attr("stroke","black")
+  .attr("stroke-width",2)
   .attr("x",0)
-  .attr("y",60)
+  .attr("y",q3)
   .attr("width",60)
-  .attr("height",60);
+  .attr("height",iqr);
 });
