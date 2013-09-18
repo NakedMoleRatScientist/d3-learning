@@ -25,21 +25,23 @@ $(document).ready(function()
     .attr("height",height)
 
   iqr_height = yScale(q1) - yScale(q3)
+  rect_x = 50
   var rect = svg.append("rect")
     .attr("fill","none")
     .attr("stroke","black")
     .attr("stroke-width",2)
-    .attr("x",50)
+    .attr("x",rect_x)
     .attr("y",yScale(q3))
     .attr("width",60)
     .attr("height",iqr_height);
 
+  middle_x = rect_x + (rect_x / 2)
   var bottom_line = svg.append("line")
     .attr("stroke","black")
     .attr('stroke-width',2)
-    .attr("x1",75)
+    .attr("x1",middle_x )
     .attr("y1",yScale(q1))
-    .attr("x2",75)
+    .attr("x2",middle_x)
     .attr("y2",yScale(dataset[0]));
   
 });
