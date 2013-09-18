@@ -24,7 +24,7 @@ $(document).ready(function()
     .attr("width",width)
     .attr("height",height)
 
-  iqr_height = yScale(q3) - yScale(q1)
+  iqr_height = yScale(q1) - yScale(q3)
   var rect = svg.append("rect")
     .attr("fill","none")
     .attr("stroke","black")
