@@ -28,7 +28,7 @@ $(document).ready(function()
   .attr("stroke","black")
   .attr("stroke-width",2)
   .attr("x",0)
-  .attr("y",q3)
+  .attr("y",yScale(q3))
   .attr("width",60)
-  .attr("height",iqr);
+  .attr("height",yScale(iqr));
 });
