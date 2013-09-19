@@ -7,29 +7,16 @@ $(document).ready(function()
   dataset.sort()
 
   //Claculate the various values needed for a boxplot.
-  median = d3.median(dataset)
-  q1 = d3.quantile(dataset,0.25)
-  q3 = d3.quantile(dataset,0.75)
-  iqr = q3 - q1
-  end = q1 - 1.5 * iqr
-  begin = q3 + 1.5 * iqr
+  var median = d3.median(dataset)
+  var q1 = d3.quantile(dataset,0.25)
+  var q3 = d3.quantile(dataset,0.75)
+  var iqr = q3 - q1
+  var end = q1 - 1.5 * iqr
+  var begin = q3 + 1.5 * iqr
 
-  outliers = []
-  for (var i = 0; i < dataset.length; i++)
-  {
-    if (dataset[i] > begin)
-    {
-      outliers.push(dataset[i]);
-    }
-  }
 
-  for (var i = 0; i < dataset.length; i++)
-  {
-    if (dataset[i] < end)
-    {
-      outliers.push(dataset[i]);
-    }
-  }
+  outliers = findOutliers(dataset);
+
 
   var yScale = d3.scale.linear()
   .domain([0,dataset[dataset.length - 1]])
@@ -145,3 +132,23 @@ $(document).ready(function()
     .attr("y", yScale(dataset[dataset.length - 1]))
     .text("Max: " + dataset[dataset.length - 1]);
 });
+
+function findOutliers(dataset) {
+  list = []
+  for (var i = 0; i < dataset.length; i++)
+  {
+    if (dataset[i] > begin)
+    {
+      list.push(dataset[i]);
+    }
+  }
+  
+  for (var i = 0; i < dataset.length; i++)
+  {
+    if (dataset[i] < end)
+    {
+      list.push(dataset[i]);
+    }
+  }
+  return list;
+}
