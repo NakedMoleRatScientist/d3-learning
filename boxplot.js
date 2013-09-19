@@ -93,7 +93,7 @@ $(document).ready(function()
   .data(outliers)
   .enter()
   .append("circle")
-  .attr("cx",rect_x)
+  .attr("cx",middle_x)
   .attr("cy", function(o){
     return yScale(o);
   })
