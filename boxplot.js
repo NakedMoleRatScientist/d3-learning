@@ -135,4 +135,9 @@ $(document).ready(function()
     .attr("y",yScale(dataset[0]))
     .text("Min: " + dataset[0]);
 
+  svg.append("text")
+    .attr("fill","blue")
+    .attr("x",rect_x + rect_width + 5)
+    .attr("y", yScale(dataset[dataset.length - 1]))
+    .text("Max: " + dataset[dataset.length - 1]);
 });
