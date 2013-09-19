@@ -99,6 +99,8 @@ $(document).ready(function()
     .attr("class","axis")
     .attr("transform","translate(" + padding + ",0")
     .call(yAxis)
+
+  var text_x = rect_x + rect_width + 5;
   
   //Median
   svg.append("text")
