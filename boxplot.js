@@ -121,18 +121,18 @@ $(document).ready(function()
     .attr("fill","blue")
     .attr("x",rect_x + rect_width + 5)
     .attr("y",yScale(q1) + 5)
-    .text("Q1:" + q1);
+    .text("Q1: " + q1);
 
   svg.append("text")
   .attr("fill","blue")
   .attr("x",rect_x + rect_width + 5)
   .attr("y",yScale(q3) + 5)
-  .text("Q3:" + q3);
+  .text("Q3: " + q3);
 
   svg.append("text")
     .attr("fill","blue")
     .attr("x",rect_x + rect_width + 5)
     .attr("y",yScale(dataset[0]))
-    .text("Min");
+    .text("Min: " + dataset[0]);
 
 });
