@@ -22,6 +22,10 @@ $(document).ready(function()
   .domain([0,dataset[dataset.length - 1]])
   .range([height - padding, padding])
 
+  var xScale = d3.scale.ordinal()
+    .domain(["Women's Oscar Award"])
+    .range([padding,width - padding]);
+  
   var svg = d3.select("body")
     .append("svg")
     .attr("width",width)
