@@ -115,5 +115,5 @@ $(document).ready(function()
     .attr("font-size", "0.85em")
     .attr("x",rect_x + rect_width + 5)
     .attr("y",median_y)
-    .text("Median: " + median)
+    .text("M: " + median)
 });
