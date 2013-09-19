@@ -97,7 +97,7 @@ $(document).ready(function()
   .attr("cy", function(o){
     return yScale(o);
   })
-  .attr("r", 1);
+  .attr("r", 2);
 
   var yAxis = d3.svg.axis()
     .scale(yScale)
