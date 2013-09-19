@@ -30,7 +30,6 @@ $(document).ready(function()
       outliers.push(dataset[i]);
     }
   }
-  
 
   var yScale = d3.scale.linear()
   .domain([0,dataset[dataset.length - 1]])
@@ -89,6 +88,16 @@ $(document).ready(function()
     .attr("y1",median_y)
     .attr("x2",rect_x + rect_width)
     .attr("y2",median_y)
+
+  svg.selectAll("circle")
+  .data(outliers)
+  .enter()
+  .append("circle")
+  .attr("cx",rect_x)
+  .attr("cy", function(o){
+    return yScale(o);
+  })
+  .attr("r", 1);
 
   var yAxis = d3.svg.axis()
     .scale(yScale)
