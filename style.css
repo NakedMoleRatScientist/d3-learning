@@ -15,4 +15,9 @@ div.bar {
     height: 75px;
     background-color: teal;
     margin-right: 2px;
+
+}
+
+body {
+    font-size: 0.85em;
 }
