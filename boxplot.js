@@ -13,6 +13,23 @@ $(document).ready(function()
   iqr = q3 - q1
   end = q1 - 1.5 * iqr
   begin = q3 + 1.5 * iqr
+
+  outliers = []
+  for (var i = 0; i < dataset.length; i++)
+  {
+    if (dataset[i] > begin)
+    {
+      outliers.push(dataset[i]);
+    }
+  }
+
+  for (var i = 0; i < dataset.length; i++)
+  {
+    if (dataset[i] < end)
+    {
+      outliers.push(dataset[i]);
+    }
+  }
   
 
   var yScale = d3.scale.linear()
@@ -73,4 +90,13 @@ $(document).ready(function()
     .attr("x2",rect_x + rect_width)
     .attr("y2",median_y)
 
+  var yAxis = d3.svg.axis()
+    .scale(yScale)
+    .orient("right")
+    .ticks("10")
+  
+  svg.append("g")
+    .attr("class","axis")
+    .attr("transform","translate(" + padding + ",0")
+    .call(yAxis)
 });
