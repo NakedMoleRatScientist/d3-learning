@@ -22,18 +22,15 @@ $(document).ready(function()
   .domain([0,dataset[dataset.length - 1]])
   .range([height - padding, padding])
 
-  var xScale = d3.scale.ordinal()
-    .domain(["Women's Oscar Award"])
-    .range([padding,width - padding]);
-  
   var svg = d3.select("body")
     .append("svg")
     .attr("width",width)
     .attr("height",height)
 
-  iqr_height = yScale(q1) - yScale(q3)
-  rect_x = 50
-  rect_width = 60
+  iqr_height = yScale(q1) - yScale(q3);
+  console.log(xScale(1))
+  rect_x = xScale(1);
+  rect_width = 60;
 
   plotRect = function () {
     svg.append("rect")
