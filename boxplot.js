@@ -28,8 +28,7 @@ $(document).ready(function()
     .attr("height",height)
 
   iqr_height = yScale(q1) - yScale(q3);
-  console.log(xScale(1))
-  rect_x = xScale(1);
+  rect_x = 50;
   rect_width = 60;
 
   plotRect = function () {
