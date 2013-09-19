@@ -68,9 +68,9 @@ $(document).ready(function()
   var median = svg.append("line")
     .attr("stroke","black")
     .attr("stroke-width",2)
-    .attr("x1",middle_x)
+    .attr("x1",rect_x)
     .attr("y1",median_y)
-    .attr("x2",middle_x + width)
+    .attr("x2",rect_x + rect_width)
     .attr("y2",median_y)
 
 });
