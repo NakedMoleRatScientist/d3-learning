@@ -111,10 +111,9 @@ $(document).ready(function()
 
   //Median text
   svg.append("text")
-    .attr("font-family","sans-serif")
-    .attr("font-size", "0.85em")
     .attr("fill","blue")
     .attr("x",rect_x + rect_width + 5)
     .attr("y",median_y)
     .text("M: " + median)
+
 });
