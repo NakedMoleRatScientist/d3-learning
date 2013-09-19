@@ -104,11 +104,11 @@ $(document).ready(function()
 
   labels = []
   labels.push({name: "q1", value: q1});
-  labels.push({name: "q3", value: q3});
+/*  labels.push({name: "q3", value: q3});
   labels.push({name: "M", value: median});
   labels.push({name: "Max", value: dataset[dataset.length - 1]});
   labels.push({name: "Min", value: dataset[0]})
-  
+*/  
   
   //Median
   svg.append("text")
