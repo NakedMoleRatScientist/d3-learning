@@ -43,14 +43,18 @@ $(document).ready(function()
   iqr_height = yScale(q1) - yScale(q3)
   rect_x = 50
   rect_width = 60
-  var rect = svg.append("rect")
-    .attr("fill","none")
-    .attr("stroke","black")
-    .attr("stroke-width",2)
-    .attr("x",rect_x)
-    .attr("y",yScale(q3))
-    .attr("width",rect_width)
-    .attr("height",iqr_height);
+
+  plotRect = function () {
+    svg.append("rect")
+      .attr("fill","none")
+      .attr("stroke","black")
+      .attr("stroke-width",2)
+      .attr("x",rect_x)
+      .attr("y",yScale(q3))
+      .attr("width",rect_width)
+      .attr("height",iqr_height);
+  }
+  var rect = plotRect();
 
   if (end < dataset[0])
     b_stop = yScale(dataset[0]);
@@ -108,7 +112,7 @@ $(document).ready(function()
     .attr("class","axis")
     .attr("transform","translate(" + padding + ",0")
     .call(yAxis)
-
+  
   //Median
   svg.append("text")
     .attr("fill","blue")
