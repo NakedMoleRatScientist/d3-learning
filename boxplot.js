@@ -152,3 +152,14 @@ function findOutliers(dataset,max,min) {
   }
   return list;
 }
+
+function plotLabel(labels,x,yScale) {
+  svg.selectAll("text")
+    .enter(values)
+    .enter()
+    .append("text")
+    .text(function(l) {l.name + ": " + l.value})
+    .attr("x",x)
+    .attr("y",yScale(y));
+  
+}
