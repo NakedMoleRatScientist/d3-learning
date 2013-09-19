@@ -160,8 +160,8 @@ function plotLabel(labels,x,yScale) {
     .enter(values)
     .enter()
     .append("text")
-    .text(function(l) {l.name + ": " + l.value})
+    .text(function(l) {l.name + ": " + l.value;})
     .attr("x",x)
-    .attr("y",yScale(y));
+    .attr("y",yScale(function(l) {return l.value;}));
   
 }
