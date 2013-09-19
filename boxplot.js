@@ -15,7 +15,7 @@ $(document).ready(function()
   var begin = q3 + 1.5 * iqr
 
 
-  outliers = findOutliers(dataset);
+  outliers = findOutliers(dataset,begin,end);
 
 
   var yScale = d3.scale.linear()
@@ -133,11 +133,11 @@ $(document).ready(function()
     .text("Max: " + dataset[dataset.length - 1]);
 });
 
-function findOutliers(dataset) {
+function findOutliers(dataset,max,min) {
   list = []
   for (var i = 0; i < dataset.length; i++)
   {
-    if (dataset[i] > begin)
+    if (dataset[i] > max)
     {
       list.push(dataset[i]);
     }
@@ -145,7 +145,7 @@ function findOutliers(dataset) {
   
   for (var i = 0; i < dataset.length; i++)
   {
-    if (dataset[i] < end)
+    if (dataset[i] < min)
     {
       list.push(dataset[i]);
     }
