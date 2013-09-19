@@ -81,7 +81,7 @@ $(document).ready(function()
 
   median_y = yScale(median)
 
-  var median = svg.append("line")
+  var m = svg.append("line")
     .attr("stroke","black")
     .attr("stroke-width",2)
     .attr("x1",rect_x)
@@ -108,4 +108,12 @@ $(document).ready(function()
     .attr("class","axis")
     .attr("transform","translate(" + padding + ",0")
     .call(yAxis)
+
+  //Median text
+  svg.append("text")
+    .attr("font-family","sans-serif")
+    .attr("font-size", "0.85em")
+    .attr("x",rect_x + rect_width + 5)
+    .attr("y",median_y)
+    .text("Median: " + median)
 });
