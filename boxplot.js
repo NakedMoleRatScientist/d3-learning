@@ -70,7 +70,7 @@ $(document).ready(function()
     .attr("x2",middle_x)
     .attr("y2",t_stop);
 
-  median_y = yScale(median)
+  median_y = yScale(median);
 
   var m = svg.append("line")
     .attr("stroke","black")
@@ -109,7 +109,7 @@ $(document).ready(function()
   labels.push({name: "Max", value: dataset[dataset.length - 1]});
   labels.push({name: "Min", value: dataset[0]})
 */
-  plotLabels(labels);
+  plotLabels(labels,text_x,yScale);
   
   //Median
   svg.append("text")
@@ -164,13 +164,15 @@ function findOutliers(dataset,max,min) {
 }
 
 function plotLabels(labels,x,yScale) {
+  console.log("herp");
   svg.selectAll("text")
     .data(labels)
     .enter()
     .append("text")
-    .text(function(l) {return l.name + ": " + l.value;})
+    .text(function(l) {console.log("weep");return l.name + ": " + l.value;})
     .attr("fill","blue")
     .attr("x",x)
     .attr("y",function(l) {return yScale(l.value);});
-  
+
+  console.log("derp");
 }
