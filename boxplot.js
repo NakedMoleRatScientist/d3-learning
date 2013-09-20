@@ -22,7 +22,7 @@ $(document).ready(function()
   .domain([0,dataset[dataset.length - 1]])
   .range([height - padding, padding])
 
-  var svg = d3.select("body")
+  svg = d3.select("body")
     .append("svg")
     .attr("width",width)
     .attr("height",height)
@@ -108,7 +108,8 @@ $(document).ready(function()
   labels.push({name: "M", value: median});
   labels.push({name: "Max", value: dataset[dataset.length - 1]});
   labels.push({name: "Min", value: dataset[0]})
-*/  
+*/
+  plotLabels(labels);
   
   //Median
   svg.append("text")
@@ -163,13 +164,13 @@ function findOutliers(dataset,max,min) {
   return list;
 }
 
-function plotLabel(labels,x,yScale) {
+function plotLabels(labels,x,yScale) {
   svg.selectAll("text")
-    .enter(values)
+    .data(labels)
     .enter()
     .append("text")
-    .text(function(l) {l.name + ": " + l.value;})
+    .text(function(l) {return l.name + ": " + l.value;})
     .attr("x",x)
-    .attr("y",yScale(function(l) {return l.value;}));
+    .attr("y",function(l) {return yScale(l.value);});
   
 }
