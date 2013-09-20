@@ -168,7 +168,7 @@ function plotLabels(labels,x,yScale) {
     .data(labels)
     .enter()
     .append("text")
-    .text(function(l) {return l.name + ": " + l.value;})
+    .text(function(l) {var name = l.name + ": " + l.value; console.log(name); return name;})
     .attr("x",x)
     .attr("y",function(l) {return yScale(l.value);});
   
