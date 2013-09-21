@@ -44,9 +44,9 @@ $(document).ready(function()
   var rect = plotRect(rect_x,q3,rect_width,iqr_height);
 
   if (end < dataset[0])
-    b_stop = yScale(dataset[0]);
+    var b_stop = yScale(dataset[0]);
   else
-    b_stop = yScale(end);
+    var b_stop = yScale(end);
   
   middle_x = rect_x + (rect_width / 2)
   var bottom_line = svg.append("line")
@@ -58,9 +58,9 @@ $(document).ready(function()
     .attr("y2",b_stop);
 
   if (begin > dataset[dataset.length - 1])
-    t_stop = yScale(dataset[0]);
+    var t_stop = yScale(dataset[0]);
   else
-    t_stop = yScale(begin);
+    var t_stop = yScale(begin);
 
   var top_line = svg.append("line")
     .attr("stroke","black")
