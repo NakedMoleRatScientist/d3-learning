@@ -27,21 +27,21 @@ $(document).ready(function()
     .attr("width",width)
     .attr("height",height)
 
-  iqr_height = yScale(q1) - yScale(q3);
-  rect_x = 50;
-  rect_width = 60;
+  var iqr_height = yScale(q1) - yScale(q3);
+  var rect_x = 50;
+  var rect_width = 60;
 
-  plotRect = function () {
+  plotRect = function (x,y,width,height) {
     svg.append("rect")
       .attr("fill","none")
       .attr("stroke","black")
       .attr("stroke-width",2)
-      .attr("x",rect_x)
-      .attr("y",yScale(q3))
-      .attr("width",rect_width)
-      .attr("height",iqr_height);
+      .attr("x",x)
+      .attr("y",yScale(y))
+      .attr("width",width)
+      .attr("height",height);
   }
-  var rect = plotRect();
+  var rect = plotRect(rect_x,q3,rect_width,iqr_height);
 
   if (end < dataset[0])
     b_stop = yScale(dataset[0]);
