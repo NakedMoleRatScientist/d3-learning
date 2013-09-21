@@ -97,6 +97,10 @@ $(document).ready(function()
   
   labels = []
   labels.push({name: "q1", value: q1});
+  labels.push({name: "q3", value: q3});
+  labels.push({name: "M", value: median});
+  labels.push({name: "Max", value: dataset[dataset.length - 1]});
+  labels.push({name: "Min", value: dataset[0]})
   var text_x = rect_x + rect_width + 5;
 
   svg.selectAll("text")
@@ -113,40 +117,6 @@ $(document).ready(function()
     .attr("class","axis")
     .attr("transform","translate(" + padding + ",0")
     .call(yAxis);
-
-/* labels.push({name: "q3", value: q3});
-  labels.push({name: "M", value: median});
-  labels.push({name: "Max", value: dataset[dataset.length - 1]});
-  labels.push({name: "Min", value: dataset[0]})
-*/
-
-
-
-  //Median
-  svg.append("text")
-    .attr("fill","blue")
-    .attr("x",rect_x + rect_width + 5)
-    .attr("y",median_y)
-    .text("M: " + median)
-
-  svg.append("text")
-  .attr("fill","blue")
-  .attr("x",rect_x + rect_width + 5)
-  .attr("y",yScale(q3) + 5)
-  .text("Q3: " + q3);
-
-  svg.append("text")
-    .attr("fill","blue")
-    .attr("x",rect_x + rect_width + 5)
-    .attr("y",yScale(dataset[0]))
-    .text("Min: " + dataset[0]);
-
-  svg.append("text")
-    .attr("fill","blue")
-    .attr("x",rect_x + rect_width + 5)
-    .attr("y", yScale(dataset[dataset.length - 1]))
-    .text("Max: " + dataset[dataset.length - 1]);
-
 
 });
 
