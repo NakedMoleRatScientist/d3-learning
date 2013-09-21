@@ -4,18 +4,18 @@ $(document).ready(function()
   var height = 600;
   var padding = 40;
   var dataset = [34, 34, 26, 37, 42, 41, 35, 31, 41, 33, 30, 74, 33, 49, 38, 61, 21, 41, 26, 80, 43, 29, 33, 35, 45, 49, 39, 34, 26, 25, 35, 33]
-  dataset.sort()
+  dataset.sort();
 
   //Claculate the various values needed for a boxplot.
-  var median = d3.median(dataset)
-  var q1 = d3.quantile(dataset,0.25)
-  var q3 = d3.quantile(dataset,0.75)
-  var iqr = q3 - q1
-  var end = q1 - 1.5 * iqr
-  var begin = q3 + 1.5 * iqr
+  var median = d3.median(dataset);
+  var q1 = d3.quantile(dataset,0.25);
+  var q3 = d3.quantile(dataset,0.75);
+  var iqr = q3 - q1;
+  var end = q1 - 1.5 * iqr;
+  var begin = q3 + 1.5 * iqr;
 
 
-  outliers = findOutliers(dataset,begin,end);
+  var outliers = findOutliers(dataset,begin,end);
 
 
   var yScale = d3.scale.linear()
@@ -139,4 +139,3 @@ function findOutliers(dataset,max,min) {
   }
   return list;
 }
-
