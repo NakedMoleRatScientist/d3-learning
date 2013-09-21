@@ -19,11 +19,11 @@ $(document).ready(function() {
 
   var xScale = d3.time.scale()
   .domain([dataset[0][0], [dataset[dataset.length -1][0]]])
-  .range(padding, width - padding);
+  .range([padding, width - padding]);
 
   var yScale = d3.scale.linear()
   .domain([0,d3.max(dataset, function(d) {return d[1];})])
-
+  .range([height, height - padding]);
           
   
 });
