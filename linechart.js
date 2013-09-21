@@ -30,11 +30,21 @@ $(document).ready(function() {
   .x(function(d) {return xScale(d[0]);})
   .y(function(d) {console.log(yScale(d[1]));return yScale(d[1]);});
 
+  var xAxis = d3.svg.axis()
+  .scale(xScale)
+  .orient('bottom')
+  .ticks(dataset.length);
+
+  svg.append("g")
+  .attr("class","axis")
+  .attr("transform", "translate(0," + (height - padding) + ")")
+  .call(xAxis);
+
   svg.append("path")
   .datum(dataset)
   .attr("class","line")
   .attr("d",line);
 
-          
+
   
 });
