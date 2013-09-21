@@ -28,12 +28,22 @@ $(document).ready(function() {
 
   var line = d3.svg.line()
   .x(function(d) {return xScale(d[0]);})
-  .y(function(d) {console.log(yScale(d[1]));return yScale(d[1]);});
+  .y(function(d) {return yScale(d[1]);});
 
   var xAxis = d3.svg.axis()
   .scale(xScale)
   .orient('bottom')
   .ticks(dataset.length);
+
+  var yAxis = d3.svg.axis()
+  .scale(yScale)
+  .orient("left")
+  .ticks(dataset.length + 1);
+
+  svg.append("g")
+  .attr("class","axis")
+  .attr("transform", "translate(" + padding + ",0)")
+  .call(yAxis);
 
   svg.append("g")
   .attr("class","axis")
