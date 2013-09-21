@@ -95,22 +95,33 @@ $(document).ready(function()
     .orient("right")
     .ticks("10")
   
+  labels = []
+  labels.push({name: "q1", value: q1});
+  var text_x = rect_x + rect_width + 5;
+
+  svg.selectAll("text")
+    .data(labels)
+    .enter()
+    .append("text")
+    .text(function(l) {return l.name + ": " + l.value;})
+    .attr("fill","blue")
+    .attr("x",text_x)
+    .attr("y",function(l) {return yScale(l.value);});
+  
+  
   svg.append("g")
     .attr("class","axis")
     .attr("transform","translate(" + padding + ",0")
-    .call(yAxis)
+    .call(yAxis);
 
-  var text_x = rect_x + rect_width + 5;
-
-  labels = []
-  labels.push({name: "q1", value: q1});
 /* labels.push({name: "q3", value: q3});
   labels.push({name: "M", value: median});
   labels.push({name: "Max", value: dataset[dataset.length - 1]});
   labels.push({name: "Min", value: dataset[0]})
 */
-  plotLabels(labels,text_x,yScale);
-  
+
+
+
   //Median
   svg.append("text")
     .attr("fill","blue")
@@ -141,6 +152,8 @@ $(document).ready(function()
     .attr("x",rect_x + rect_width + 5)
     .attr("y", yScale(dataset[dataset.length - 1]))
     .text("Max: " + dataset[dataset.length - 1]);
+
+
 });
 
 function findOutliers(dataset,max,min) {
@@ -163,16 +176,3 @@ function findOutliers(dataset,max,min) {
   return list;
 }
 
-function plotLabels(labels,x,yScale) {
-  console.log("herp");
-  svg.selectAll("text")
-    .data(labels)
-    .enter()
-    .append("text")
-    .text(function(l) {console.log("weep");return l.name + ": " + l.value;})
-    .attr("fill","blue")
-    .attr("x",x)
-    .attr("y",function(l) {return yScale(l.value);});
-
-  console.log("derp");
-}
