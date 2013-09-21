@@ -23,7 +23,7 @@ $(document).ready(function() {
 
   var yScale = d3.scale.linear()
   .domain([0,d3.max(dataset, function(d) {return d[1];})])
-  .range([height, height - padding]);
+  .range([height - padding, padding]);
 
 
   var line = d3.svg.line()
