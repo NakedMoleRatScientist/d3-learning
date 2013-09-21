@@ -18,12 +18,23 @@ $(document).ready(function() {
   ];
 
   var xScale = d3.time.scale()
-  .domain([dataset[0][0], [dataset[dataset.length -1][0]]])
-  .range([padding, width - padding]);
+  .domain([dataset[0][0], dataset[dataset.length - 1][0]])
+  .range([padding, width - padding * 2]);
 
   var yScale = d3.scale.linear()
   .domain([0,d3.max(dataset, function(d) {return d[1];})])
   .range([height, height - padding]);
+
+
+  var line = d3.svg.line()
+  .x(function(d) {return xScale(d[0]);})
+  .y(function(d) {console.log(yScale(d[1]));return yScale(d[1]);});
+
+  svg.append("path")
+  .datum(dataset)
+  .attr("class","line")
+  .attr("d",line);
+
           
   
 });
