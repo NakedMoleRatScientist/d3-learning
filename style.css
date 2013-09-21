@@ -18,6 +18,13 @@ div.bar {
 
 }
 
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
 body {
     font-size: 0.85em;
 }
+
