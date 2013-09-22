@@ -25,7 +25,12 @@ $(document).ready(function(){
   .data(pie(data))
   .enter()
   .append("g")
-  .attr("class","arc");
+
+  g.append("path")
+  .attr("d",arc)
+  .data(data)
+  .enter()
+  .style("fill",function(d) {color(d);});
 
   
 });
