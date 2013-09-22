@@ -12,5 +12,19 @@ $(document).ready(function() {
       [8,3,3,3,3,3,2]
     ];
 
+  var weekly = []
+
+  for (var i = 0; i < data.length; i++)
+  {
+    var level = 0
+    for (var x = 0; x < data[i].length; x++)
+    {
+      level += data[i][x];
+    }
+    weekly.push(level);
+  }
+
+  
+
   
 });
