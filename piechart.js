@@ -8,5 +8,8 @@ $(document).ready(function(){
   .attr("height",height);
 
   var data = [33,40,30];
+
+  var pie = d3.layout.pie()
+  
   
 });
