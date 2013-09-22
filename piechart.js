@@ -9,6 +9,10 @@ $(document).ready(function(){
   .attr("width",width)
   .attr("height",height);
 
+  var arc = d3.svg.arc()
+  .outerRadius(radius - 10)
+  .innerRadius(0);
+  
   var data = [33,40,30];
 
   var pie = d3.layout.pie()
@@ -16,5 +20,12 @@ $(document).ready(function(){
 
   var colors = d3.scale.ordinal()
   .range(["red","blue","orange"]);
+
+  var g = svg.selectAll(".arc")
+  .data(pie(data))
+  .enter()
+  .append("g")
+  .attr("class","arc");
+
   
 });
