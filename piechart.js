@@ -23,6 +23,7 @@ $(document).ready(function(){
   var colors = d3.scale.ordinal()
   .range(["red","blue","orange"]);
 
+
   var g = svg.selectAll(".arc")
   .data(pie(data))
   .enter()
@@ -30,9 +31,7 @@ $(document).ready(function(){
 
   g.append("path")
   .attr("d",arc)
-  .data(data)
-  .enter()
-  .style("fill",function(d) {console.log("beep");return color(d);});
+  .style("fill",function(d) {return colors(d.value);});
 
   
 });
