@@ -24,6 +24,11 @@ $(document).ready(function() {
     weekly.push(level);
   }
 
+  var svg = d3.select("body")
+  .append("svg")
+  .attr("width",width)
+  .attr("height",height);
+
   
 
   
