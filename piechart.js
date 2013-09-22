@@ -2,6 +2,8 @@ $(document).ready(function(){
   var width = 800;
   var height = 600;
   var padding = 40;
+  var radius = Math.min(width,height) / 2;
+  
   var svg = d3.select("body")
   .append("svg")
   .attr("width",width)
