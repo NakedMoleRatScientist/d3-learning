@@ -7,7 +7,9 @@ $(document).ready(function(){
   var svg = d3.select("body")
   .append("svg")
   .attr("width",width)
-  .attr("height",height);
+  .attr("height",height)
+  .append("g")
+  .attr("transform","translate(" + width /2 + "," + height / 2 +")");
 
   var arc = d3.svg.arc()
   .outerRadius(radius - 10)
@@ -30,7 +32,7 @@ $(document).ready(function(){
   .attr("d",arc)
   .data(data)
   .enter()
-  .style("fill",function(d) {color(d);});
+  .style("fill",function(d) {console.log("beep");return color(d);});
 
   
 });
