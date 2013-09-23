@@ -29,7 +29,15 @@ $(document).ready(function() {
   .attr("width",width)
   .attr("height",height);
 
-  
+  svg.selectAll("rect")
+  .data(data)
+  .enter()
+  .append("rect")
+  .attr("x", function(d, i) {return 30 * i;})
+  .attr("y", 100)
+  .attr("width", 20)
+  .attr("height", 20)
+  .attr("fill", "blue");  
 
   
 });
