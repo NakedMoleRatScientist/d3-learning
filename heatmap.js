@@ -45,7 +45,7 @@ $(document).ready(function() {
     .attr("transform", function(d,i) {
       return "translate(" + [0, 20 + i * 40] + ")";
     })
-  rowsEnter.selectAll("rect")
+  rowsEnter.selectAll("rect.day")
     .data(function(d) { return d})
     .enter()
     .append("rect")
@@ -55,12 +55,15 @@ $(document).ready(function() {
     .attr("fill", function(d) {return colors[d];});
 
   console.log(weekly);
-  svg.selectAll("rect")
+  svg.selectAll("rect.week")
     .data(weekly)
     .enter()
     .append("rect")
     .attr("x", 8 * 21)
-    .attr("y", function(d) {
+    .attr("y", function(d, i) {return 15 + 40 * i; } )
+    .attr("width",30)
+    .attr("height",30)
+    .attr("fill", function(d) {
       if (d <= 40)
         {
           return colors[Math.floor(d / 5)];
@@ -69,9 +72,7 @@ $(document).ready(function() {
         {
           return colors[7];
         }
-    })
-    .attr("width",30)
-    .attr("height",30);
+    });
  
   
 });
