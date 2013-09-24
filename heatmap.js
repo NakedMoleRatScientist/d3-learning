@@ -35,13 +35,13 @@ $(document).ready(function() {
   var rowsEnter = rows.enter()
     .append("g")
     .attr("transform", function(d,i) {
-      return "translate(" + [100, 100 + i * 21] + ")";
+      return "translate(" + [0, 0 + i * 21] + ")";
     })
   rowsEnter.selectAll("rect")
     .data(function(d) { return d})
     .enter()
     .append("rect")
-    .attr("x", function(d,i) {console.log(d);return i * 21;})
+    .attr("x", function(d,i) {return i * 21;})
     .attr("width", 20)
     .attr("height", 20)
     .attr("fill", "blue");
