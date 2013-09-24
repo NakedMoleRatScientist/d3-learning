@@ -54,7 +54,6 @@ $(document).ready(function() {
     .attr("height", 20)
     .attr("fill", function(d) {return colors[d];});
 
-  console.log(weekly);
   svg.selectAll("rect.week")
     .data(weekly)
     .enter()
