@@ -44,7 +44,7 @@ $(document).ready(function() {
     .attr("x", function(d,i) {return i * 21;})
     .attr("width", 20)
     .attr("height", 20)
-    .attr("fill", "blue");
+    .attr("fill", function(d) {return colors[d];});
  
   
 });
