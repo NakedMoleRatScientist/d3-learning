@@ -29,15 +29,22 @@ $(document).ready(function() {
   .attr("width",width)
   .attr("height",height);
 
-  svg.selectAll("rect")
-  .data(data)
-  .enter()
-  .append("rect")
-  .attr("x", function(d, i) {return 30 * i;})
-  .attr("y", 100)
-  .attr("width", 20)
-  .attr("height", 20)
-  .attr("fill", "blue");  
-
+ 
+  var rows = svg.selectAll("g.row")
+    .data(data)
+  var rowsEnter = rows.enter()
+    .append("g")
+    .attr("transform", function(d,i) {
+      return "translate(" + [100, 100 + i * 21] + ")";
+    })
+  rowsEnter.selectAll("rect")
+    .data(function(d) { return d})
+    .enter()
+    .append("rect")
+    .attr("x", function(d,i) {console.log(d);return i * 21;})
+    .attr("width", 20)
+    .attr("height", 20)
+    .attr("fill", "blue");
+ 
   
 });
